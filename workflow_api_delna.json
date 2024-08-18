@@ -1,0 +1,42 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "          .safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "High-resolution landscape photograph of a serene mountain lake surrounded by lush forests, vibrant wildflowers in the foreground, and a clear blue sky with a few scattered clouds. The water reflects the mountains and sky, creating a mirror-like effect.",
+      "clip": ["4", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "Low-resolution, blurred, noisy, overly compressed, distorted, with visible artifacts.",
+      "clip": ["4", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  }
+}

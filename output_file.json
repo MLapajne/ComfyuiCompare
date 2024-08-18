@@ -1,0 +1,1908 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "High-resolution landscape photograph of a serene mountain lake surrounded by lush forests, vibrant wildflowers in the foreground, and a clear blue sky with a few scattered clouds. The water reflects the mountains and sky, creating a mirror-like effect.",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "Low-resolution, blurred, noisy, overly compressed, distorted, with visible artifacts.",
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "10": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 1,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler0"
+    }
+  },
+  "100": {
+    "inputs": {
+      "samples": [
+        "10",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "200": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_1",
+      "images": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save1"
+    }
+  },
+  "11": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 2,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler1"
+    }
+  },
+  "101": {
+    "inputs": {
+      "samples": [
+        "11",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "201": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_2",
+      "images": [
+        "101",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save2"
+    }
+  },
+  "12": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 3,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler2"
+    }
+  },
+  "102": {
+    "inputs": {
+      "samples": [
+        "12",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "202": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_3",
+      "images": [
+        "102",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save3"
+    }
+  },
+  "13": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 4,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler3"
+    }
+  },
+  "103": {
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "203": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_4",
+      "images": [
+        "103",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save4"
+    }
+  },
+  "14": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 5,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler4"
+    }
+  },
+  "104": {
+    "inputs": {
+      "samples": [
+        "14",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "204": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_5",
+      "images": [
+        "104",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save5"
+    }
+  },
+  "15": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 6,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler5"
+    }
+  },
+  "105": {
+    "inputs": {
+      "samples": [
+        "15",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "205": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_6",
+      "images": [
+        "105",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save6"
+    }
+  },
+  "16": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 7,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler6"
+    }
+  },
+  "106": {
+    "inputs": {
+      "samples": [
+        "16",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "206": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_7",
+      "images": [
+        "106",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save7"
+    }
+  },
+  "17": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 8,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler7"
+    }
+  },
+  "107": {
+    "inputs": {
+      "samples": [
+        "17",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "207": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_8",
+      "images": [
+        "107",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save8"
+    }
+  },
+  "18": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 9,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler8"
+    }
+  },
+  "108": {
+    "inputs": {
+      "samples": [
+        "18",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "208": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_9",
+      "images": [
+        "108",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save9"
+    }
+  },
+  "19": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 10,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler9"
+    }
+  },
+  "109": {
+    "inputs": {
+      "samples": [
+        "19",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "209": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_10",
+      "images": [
+        "109",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save10"
+    }
+  },
+  "20": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 11,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler10"
+    }
+  },
+  "110": {
+    "inputs": {
+      "samples": [
+        "20",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "210": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_11",
+      "images": [
+        "110",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save11"
+    }
+  },
+  "21": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 12,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler11"
+    }
+  },
+  "111": {
+    "inputs": {
+      "samples": [
+        "21",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "211": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_12",
+      "images": [
+        "111",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save12"
+    }
+  },
+  "22": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 13,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler12"
+    }
+  },
+  "112": {
+    "inputs": {
+      "samples": [
+        "22",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "212": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_13",
+      "images": [
+        "112",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save13"
+    }
+  },
+  "23": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 14,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler13"
+    }
+  },
+  "113": {
+    "inputs": {
+      "samples": [
+        "23",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "213": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_14",
+      "images": [
+        "113",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save14"
+    }
+  },
+  "24": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 15,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler14"
+    }
+  },
+  "114": {
+    "inputs": {
+      "samples": [
+        "24",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "214": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_15",
+      "images": [
+        "114",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save15"
+    }
+  },
+  "25": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 16,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler15"
+    }
+  },
+  "115": {
+    "inputs": {
+      "samples": [
+        "25",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "215": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_16",
+      "images": [
+        "115",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save16"
+    }
+  },
+  "26": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 17,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler16"
+    }
+  },
+  "116": {
+    "inputs": {
+      "samples": [
+        "26",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "216": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_17",
+      "images": [
+        "116",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save17"
+    }
+  },
+  "27": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 18,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler17"
+    }
+  },
+  "117": {
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "217": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_18",
+      "images": [
+        "117",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save18"
+    }
+  },
+  "28": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 19,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler18"
+    }
+  },
+  "118": {
+    "inputs": {
+      "samples": [
+        "28",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "218": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_19",
+      "images": [
+        "118",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save19"
+    }
+  },
+  "29": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 20,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler19"
+    }
+  },
+  "119": {
+    "inputs": {
+      "samples": [
+        "29",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "219": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_20",
+      "images": [
+        "119",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save20"
+    }
+  },
+  "30": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 21,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler20"
+    }
+  },
+  "120": {
+    "inputs": {
+      "samples": [
+        "30",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "220": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_21",
+      "images": [
+        "120",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save21"
+    }
+  },
+  "31": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 22,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler21"
+    }
+  },
+  "121": {
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "221": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_22",
+      "images": [
+        "121",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save22"
+    }
+  },
+  "32": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 23,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler22"
+    }
+  },
+  "122": {
+    "inputs": {
+      "samples": [
+        "32",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "222": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_23",
+      "images": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save23"
+    }
+  },
+  "33": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 24,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler23"
+    }
+  },
+  "123": {
+    "inputs": {
+      "samples": [
+        "33",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "223": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_24",
+      "images": [
+        "123",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save24"
+    }
+  },
+  "34": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 25,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler24"
+    }
+  },
+  "124": {
+    "inputs": {
+      "samples": [
+        "34",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "224": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_25",
+      "images": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save25"
+    }
+  },
+  "35": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 26,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler25"
+    }
+  },
+  "125": {
+    "inputs": {
+      "samples": [
+        "35",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "225": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_26",
+      "images": [
+        "125",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save26"
+    }
+  },
+  "36": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 27,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler26"
+    }
+  },
+  "126": {
+    "inputs": {
+      "samples": [
+        "36",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "226": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_27",
+      "images": [
+        "126",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save27"
+    }
+  },
+  "37": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 28,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler27"
+    }
+  },
+  "127": {
+    "inputs": {
+      "samples": [
+        "37",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "227": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_28",
+      "images": [
+        "127",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save28"
+    }
+  },
+  "38": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 29,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler28"
+    }
+  },
+  "128": {
+    "inputs": {
+      "samples": [
+        "38",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "228": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_29",
+      "images": [
+        "128",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save29"
+    }
+  },
+  "39": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 5,
+      "steps": 30,
+      "cfg": 8,
+      "sampler_name": "dpm_adaptive",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 30,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler29"
+    }
+  },
+  "129": {
+    "inputs": {
+      "samples": [
+        "39",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "229": {
+    "inputs": {
+      "filename_prefix": "dpm_adaptive_normal_30",
+      "images": [
+        "129",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save30"
+    }
+  }
+}
